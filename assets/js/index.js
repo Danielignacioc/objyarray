@@ -43,26 +43,19 @@ const casas = [
   },
 ];
 
-const nroCuartos = document.getElementById("cantidad-cuartos");
-const m2Min = document.getElementById("metros-cuadrados-min");
-const m2Max = document.getElementById("metros-cuadrados-max");
+const divCasas = document.getElementById("casas");
 
-const divPropiedades = document.getElementById("casas");
-
-
+const [nroPiezas, m2Min, m2Max] = document.querySelectorAll("input");
 
 function buscar(option = true) {
-  if (option && (nroCuartos.value == '' || m2Max.value == '' || m2Min.value == '')) {
+  if (option && (nroPiezas == '' || m2Min == '' || m2Max == '')) {
     return alert("todos los campos son obligatorios");
   }
 
-  
-
   let html = "";
-
   for (let casa of casas) {
+
     html += `
-  
           <div class="propiedad">
               <div class="img" style="background-image: url('${casa.src}')"></div>
               <section>
@@ -75,17 +68,13 @@ function buscar(option = true) {
                   <button class="btn btn-info ">Ver más</button>
               </section>
           </div>
-    
-  `;
+    `;
 
-  if ((casa.rooms == nroCuartos) || (casa.m == m2Min && casa.m == m2Max)) {
-   goto(88);
   }
-  }
-  
-  
 
-  return divPropiedades.innerHTML = html;
+
+  return divCasas.innerHTML = html;
+
 }
 
 buscar(false);
