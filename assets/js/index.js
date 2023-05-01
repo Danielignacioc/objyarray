@@ -56,6 +56,8 @@ function buscar(option = true) {
     return alert("todos los campos son obligatorios");
   }
 
+  
+
   let html = "";
 
   for (let casa of casas) {
@@ -75,8 +77,15 @@ function buscar(option = true) {
           </div>
     
   `;
+
+  if ((casa.rooms == nroCuartos) || (casa.m == m2Min && casa.m == m2Max)) {
+   goto(88);
   }
-  divPropiedades.innerHTML = html;
+  }
+  
+  
+
+  return divPropiedades.innerHTML = html;
 }
 
 buscar(false);
