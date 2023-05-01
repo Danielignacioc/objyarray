@@ -74,13 +74,13 @@ function buscar(option = true) {
           </div>
       `;
     con++;
-  
-    for (let casita of casas) {
-      if (+casa.rooms == casita) {
-        console.log("hecho");
-      }
-    }
 
+  }
+
+  for (let casita of casas) {
+    if (+casita.rooms === casita.rooms  && casita.m >= +casita.m ) {
+      console.log(casita +"---------");
+    }
   }
 
 
