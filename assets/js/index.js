@@ -44,8 +44,8 @@ const casas = [
 ];
 
 const divCasas = document.getElementById("casas");
-
 const [nroPiezas, m2Min, m2Max] = document.querySelectorAll("input");
+const [, total] = document.getElementsByTagName("span");
 
 function buscar(option = true) {
   if (option && (nroPiezas == '' || m2Min == '' || m2Max == '')) {
@@ -53,9 +53,13 @@ function buscar(option = true) {
   }
 
   let html = "";
+  let con = 0;
+  let spanHtml = '';
+  
   for (let casa of casas) {
 
-    html += `
+    spanHtml = `<span>${con}</span>`;
+    html +=`
           <div class="propiedad">
               <div class="img" style="background-image: url('${casa.src}')"></div>
               <section>
@@ -68,12 +72,21 @@ function buscar(option = true) {
                   <button class="btn btn-info ">Ver más</button>
               </section>
           </div>
-    `;
+      `;
+    con++;
+  
+    for (let casita of casas) {
+      if (+casa.rooms == casita) {
+        console.log("hecho");
+      }
+    }
 
   }
 
 
-  return divCasas.innerHTML = html;
+  
+  return divCasas.innerHTML = html,
+    total.innerHTML = spanHtml;
 
 }
 
