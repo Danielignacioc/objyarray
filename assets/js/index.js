@@ -49,9 +49,9 @@ const casas = [
     }
   ];
 
-const nroCuartos = document.getElementById("cantidad-cuartos").value;
-const m2Min = document.getElementById("metros-cuadrados-min").value;
-const m2Max = document.getElementById("metros-cuadrados-max").value;
+const nroCuartos = document.getElementById("cantidad-cuartos");
+const m2Min = document.getElementById("metros-cuadrados-min");
+const m2Max = document.getElementById("metros-cuadrados-max");
 
 const divPropiedades = document.getElementById("seccion");
 
@@ -62,11 +62,11 @@ const img = document.getElementsByClassName("img");
 let sect = '';
 
 
-function buscar(nroCuartos = 1, m2Min = 1, m2Max = 1) {
+function buscar(nroCuartos) {
 
 
 
-    if (validar(nroCuartos, m2Min, m2Max)) {
+    if (!isNaN(nroCuartos)) {
         for (let obj of casas) {
 
             const sect =`
@@ -83,84 +83,56 @@ function buscar(nroCuartos = 1, m2Min = 1, m2Max = 1) {
 
 
 
-            switch (obj.rooms) {
+            switch (+obj.rooms) {
                 case 1:
-                    if (obj.rooms == 1) {
-                        divPropiedades.innerHTML += sect;
-                    }
+                    divPropiedades.innerHTML += sect;
                     break;
-                    
+
                 case 2:
-                    if (obj.rooms == 2) {
-                        divPropiedades.innerHTML += sect;
-                    }
+                    divPropiedades.innerHTML += sect;
                     break;
 
                 case 3:
-                    if (obj.rooms == 3) {
-                        divPropiedades.innerHTML += sect;
-                    }
-                break;
+                    divPropiedades.innerHTML += sect;
+                    break;
 
-                    case 4:
-                    if (obj.rooms == 4) {
-                        divPropiedades.innerHTML += sect;
-                    }
+                case 4:
+                    divPropiedades.innerHTML += sect;
                     break;
 
                 case 5:
-                    if (obj.rooms == 5) {
-                        divPropiedades.innerHTML += sect;
-                    }
+                    divPropiedades.innerHTML += sect;
                     break;
 
-
                 case 6:
-                    if (obj.rooms == 6) {
-                        divPropiedades.innerHTML += sect;
-                    }
+
+                    divPropiedades.innerHTML += sect;
                     break;
 
                 case 7:
-                    if (obj.rooms == 7) {
-                        divPropiedades.innerHTML += sect;
-                    }
+                    divPropiedades.innerHTML += sect;
                     break;
 
                 case 8:
-                    if (obj.rooms == 8) {
-                        divPropiedades.innerHTML += sect;
-                    }
+                    divPropiedades.innerHTML += sect;
                     break;
 
                 case 9:
-                    if (obj.rooms == 9) {
-                        divPropiedades.innerHTML += sect;
-                    }
+                    divPropiedades.innerHTML += sect;
                     break;
 
                 default:
-                    alert("Proporcione datos validos y/o numericos, por favor.");
+                    divPropiedades.innerHTM += sect;
+                    alert("Proporcione datos validos y/o numericos, por favor. error en else");
                     break;
             }
         }
     }
-    }
 
-function validar(nroCuartos, m2Min, m2Max)
+    else
     {
-        if ((nroCuartos <= 0 || isNaN(nroCuartos)) &&
-         (m2Min <= 0 || isNaN(m2Min)) &&
-         (m2Max <= 0 || isNaN(m2Max)) ) {
-            return (alert("Proporcione datos validos y/o numericos, por favor."));
-
-        }
-
-        else {
-
-            return true;
-        }
+        alert ("aaa");
     }
-
+}
 
 
