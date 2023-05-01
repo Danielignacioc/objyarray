@@ -68,8 +68,7 @@ function buscar(nroCuartos) {
 
     if (!isNaN(nroCuartos)) {
         for (let obj of casas) {
-
-            const sect =`
+            sect +=`
             <section>
                 <h5>${obj.name}</h5>
                 <div class="img" style="background-image: ${obj.src} ></div>
@@ -82,8 +81,8 @@ function buscar(nroCuartos) {
             `;
 
 
-
-            switch (+obj.rooms) {
+/* 
+            switch (obj.rooms) {
                 case 1:
                     divPropiedades.innerHTML += sect;
                     break;
@@ -125,13 +124,9 @@ function buscar(nroCuartos) {
                     divPropiedades.innerHTM += sect;
                     alert("Proporcione datos validos y/o numericos, por favor. error en else");
                     break;
-            }
+            }*/ 
         }
-    }
-
-    else
-    {
-        alert ("aaa");
+        divPropiedades.innerHTML = sect;
     }
 }
 
